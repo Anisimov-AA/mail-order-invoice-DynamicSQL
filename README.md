@@ -11,6 +11,11 @@ Python CLI application that displays customer order invoices using **Dynamic SQL
   </tr>
 </table>
 
+Required software:
+- Python Version = 3.7 +
+- pip
+- virtualenv ($ pip install virtualenv)
+
 ## Quick Start
 
 ### 1. Clone
