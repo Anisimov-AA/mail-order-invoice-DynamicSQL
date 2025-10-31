@@ -50,8 +50,6 @@ deactivate
 
 ### 3. Setup Database
 
-#### Database Setup (One-time, as ROOT)
-
 1. connect as root   
 using gcloud CLI / using MySQL client / using MySQL locally
 ```bash
