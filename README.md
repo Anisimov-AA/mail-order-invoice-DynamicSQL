@@ -1,10 +1,10 @@
 Python CLI application that displays customer order invoices using **Dynamic SQL** (parameterized queries) with MySQL
 
 Order Found 
-|![1023](imgs/1023.png|700)
+<img src="imgs/1023.png" width="500">
 
 Not Found
-![9999](imgs/9999.png|700)
+<img src="imgs/9999.png" width="500">
 
 ## Quick Start
 
