@@ -1,4 +1,4 @@
-from invoice import load_db_config, load_sql_query, get_db_connection, get_invoice_data
+from invoice import load_db_config, load_sql_query, get_db_connection, get_invoice_data, display_invoice
 
 def test_config():
     """Test configuration loading"""
@@ -26,8 +26,14 @@ def test_invoice_data():
         for i in range(len(data)):
             print(data[i])
 
+def test_display():
+    """Test invoice display"""
+    data = get_invoice_data(1020)
+    display_invoice(data)
+
 if __name__ == '__main__':
     # test_config()
     # test_sql_loading()
     # test_connection()
-    test_invoice_data()
+    # test_invoice_data()
+    test_display()

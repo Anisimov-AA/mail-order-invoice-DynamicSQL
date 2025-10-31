@@ -49,3 +49,54 @@ def get_invoice_data(order_num):
     finally: # always close connection
         if connection: 
             connection.close() 
+
+def display_invoice(results):
+    """Display formatted invoice from query results"""
+    
+    # check if we have results
+    if not results or len(results) == 0:
+        print("No order found with that number")
+        return
+    
+    # extract header info from first row
+    first_row = results[0]
+    order_num = first_row[0]
+    customer_name = first_row[1]
+    customer_num = first_row[2]
+    zip_code = first_row[3]
+    city = first_row[4]
+    taken_by = first_row[5]
+    received_on = first_row[6]
+    shipped_on = first_row[7]
+    
+    # print invoice header
+    print("\n" + "=" * 28 + " INVOICE " + "=" * 29)
+    print(f"Order Number: {order_num}")
+    print(f"Customer Name: {customer_name}")
+    print(f"Customer No: {customer_num}")
+    print(f"ZIP Code: {zip_code} ({city if city else 'N/A'})")
+    print(f"Taken By: {taken_by}")
+    print(f"Received on: {received_on}")
+    print(f"Shipped on: {shipped_on if shipped_on else 'Not yet shipped'}")
+    
+    # print order details section
+    print("-" * 26 + " Order Details " + "-" * 25)
+    print(f"{'Part No':<10} {'Part Name':<30} {'Qty':<6} {'Price':<10} {'Total':<10}")
+    print("-" * 66)
+    
+    # print each line item and calculate total
+    total_amount = 0
+    for row in results:
+        part_num = row[8]
+        part_name = row[9]
+        quantity = row[10]
+        price = float(row[11])
+        line_total = float(row[12])
+        
+        print(f"{part_num:<10} {part_name:<30} {quantity:<6} ${price:<9.2f} ${line_total:<9.2f}")
+        total_amount += line_total
+    
+    # print footer with total
+    print("=" * 66)
+    print(f"TOTAL AMOUNT: ${total_amount:.2f}")
+    print("=" * 66 + "\n")
