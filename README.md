@@ -2,7 +2,7 @@ Python CLI application that displays customer order invoices using **Dynamic SQL
 
 | Order Found | Not Shipped | Not Found |
 |-------------|-------------|-----------|
-| ![1020](screenshots/1020.png) | ![1023](screenshots/1023.png) | ![9999](screenshots/9999.png) |
+| ![1020](imgs/1020.png) | ![1023](imgs/1023.png) | ![9999](imgs/9999.png) |
 
 ## Quick Start
 
@@ -56,7 +56,7 @@ mysql -u root -p
 ```sql
 CREATE DATABASE mail_order;
 USE mail_order;
-C:/.../sql/cr_mailorder.sql
+source C:/.../sql/cr_mailorder.sql
 ```
    
 3. verify tables
