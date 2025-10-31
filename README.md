@@ -2,7 +2,7 @@ Python CLI application that displays customer order invoices using **Dynamic SQL
 
 | Order Found | Not Shipped | Not Found |
 |-------------|-------------|-----------|
-| ![1020](imgs/1020.png) | ![1023](imgs/1023.png) | ![9999](imgs/9999.png) |
+| ![1020](imgs/1020.png) | ![1023](imgs/1023 .png) | ![9999](imgs/9999.png) |
 
 ## Quick Start
 
