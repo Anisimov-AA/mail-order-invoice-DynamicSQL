@@ -10,11 +10,10 @@ cd mail-order-invoice-DynamicSQL
 #### 2.1 Database Setup (One-time, as ROOT)
 
 1. connect as root   
-method 1: using gcloud CLI
+method 1: using gcloud CLI / method 2: using MySQL client
 ```bash
 gcloud sql connect [db_name] --user=root
 ```
-method 2: using MySQL client
 ```bash
 mysql --host=[IPv4 address] --user=root –-password
 ```
@@ -47,11 +46,10 @@ exit
 #### 2.2 Database Usage
 
 1. connect to database
-method 1: using gcloud CLI
+method 1: using gcloud CLI / method 2: using MySQL client
 ```bash
 gcloud sql connect neu-test-db --user=YOUR_USERNAME
 ```
-method 2: using MySQL client
 ```bash
 mysql --host=YOUR_CLOUD_SQL_IP --user=YOUR_USERNAME --password
 ```
