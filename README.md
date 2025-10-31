@@ -7,7 +7,7 @@ cd mail-order-invoice-DynamicSQL
 
 ### 2. Database Setup
 
-#### 2.1 Database Setup (One-time, as ROOT)
+#### Database Setup (One-time, as ROOT)
 
 1. connect as root   
 method 1: using gcloud CLI / method 2: using MySQL client
@@ -43,7 +43,7 @@ GRANT ALL PRIVILEGES ON [db_name].* TO 'username';
 exit
 ```
 
-#### 2.2 Database Usage
+#### Database Usage
 
 1. connect to database
 method 1: using gcloud CLI / method 2: using MySQL client
@@ -79,7 +79,7 @@ exit
 
 ### 3. Python Setup
 
-#### 3.1. Set Up Virtual Environment
+#### Set Up Virtual Environment
 
 1. create virtual environment
 ```bash
@@ -101,7 +101,7 @@ pip install -r requirements.txt
 pip list
 ```
 
-### 3.2. Create `config/db_config.json`
+#### Create `config/db_config.json`
 
 ```json
 {
