@@ -1,7 +1,10 @@
 ### 1. Clone Repository
 
 ```bash
-https://github.com/Anisimov-AA/mail-order-invoice-DynamicSQL.git
+git clone https://github.com/Anisimov-AA/mail-order-invoice-DynamicSQL.git
+```
+
+```bas
 cd mail-order-invoice-DynamicSQL
 ```
 
