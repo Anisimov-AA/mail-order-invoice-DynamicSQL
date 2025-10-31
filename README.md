@@ -9,7 +9,7 @@ cd mail-order-invoice-DynamicSQL
 
 #### 2.1 Database Setup (One-time, as ROOT)
 
-connect as root
+1. connect as root   
 method 1: using gcloud CLI
 ```bash
 gcloud sql connect [db_name] --user=root
@@ -19,19 +19,19 @@ method 2: using MySQL client
 mysql --host=[IPv4 address] --user=root –-password
 ```
    
-create database and load schema
+2. create database and load schema
 ```sql
 CREATE DATABASE mail_order;
 USE mail_order;
 C:/.../sql/cr_mailorder.sql
 ```
    
-verify tables
+3. verify tables
 ```sql
 SHOW TABLES;
 ```
 
-create user and grant permissions to user
+4. create user and grant permissions to user
 ```sql
 -- if user doesn't already exist:
 CREATE USER 'username' IDENTIFIED BY 'password';
@@ -39,14 +39,14 @@ CREATE USER 'username' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON [db_name].* TO 'username';
 ```
    
-exit
+5. exit
 ```sql
 exit
 ```
 
 #### 2.2 Database Usage
 
-connect to database
+1. connect to database
 method 1: using gcloud CLI
 ```bash
 gcloud sql connect neu-test-db --user=YOUR_USERNAME
@@ -56,12 +56,12 @@ method 2: using MySQL client
 mysql --host=YOUR_CLOUD_SQL_IP --user=YOUR_USERNAME --password
 ```
    
-use the database
+2. use the database
 ```sql
 USE mail_order;
 ```
    
-example queries
+3. example queries
 ```sql
 -- View all tables
 SHOW TABLES;
@@ -74,7 +74,7 @@ DESCRIBE orders;
 SELECT * FROM customers;
 ```
 
-exit
+4. exit
 ```sql
 exit
 ```
@@ -83,22 +83,22 @@ exit
 
 #### 3.1. Set Up Virtual Environment
 
-create virtual environment
+1. create virtual environment
 ```bash
 py -m venv dbenv
 ```
    
-activate virtual environment (you should see (dbenv) in prompt)
+2. activate virtual environment (you should see (dbenv) in prompt)
 ```bash
 dbenv\Scripts\activate
 ```
    
-install dependencies
+3. install dependencies
 ```bash 
 pip install -r requirements.txt
 ```
     
-verify installation
+4. verify installation
 ```
 pip list
 ```
