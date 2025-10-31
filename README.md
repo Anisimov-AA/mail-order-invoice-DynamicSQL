@@ -1,6 +1,6 @@
 Python CLI application that displays customer order invoices using **Dynamic SQL** (parameterized queries) with MySQL
 
-table>
+<table>
   <tr>
     <td><b>Order Found</b></td>
     <td><b>Not Found</b></td>
