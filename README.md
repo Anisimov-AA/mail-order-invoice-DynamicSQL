@@ -3,10 +3,10 @@ Python CLI application that displays customer order invoices using **Dynamic SQL
 <table>
   <tr>
     <td><b>Order Found</b></td>
-    <td><b>Not Found</b></td>
+    <td><img src="imgs/1023.png" width="300"></td>
   </tr>
   <tr>
-    <td><img src="imgs/1023.png" width="300"></td>
+    <td><b>Not Found</b></td>
     <td><img src="imgs/9999.png" width="300"></td>
   </tr>
 </table>
