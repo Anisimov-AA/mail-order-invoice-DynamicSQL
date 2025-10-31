@@ -1,21 +1,49 @@
-### 1. Clone Repository
+Python CLI application that displays customer order invoices using **Dynamic SQL** (parameterized queries) with MySQL
 
-```bash
+| Order Found | Not Shipped | Not Found |
+|-------------|-------------|-----------|
+| ![1020](screenshots/1020.png) | ![1023](screenshots/1023.png) | ![9999](screenshots/9999.png) |
+
+## Quick Start
+
+### 1. Clone
+```
 git clone https://github.com/Anisimov-AA/mail-order-invoice-DynamicSQL.git
 ```
-
-```bas
+```
 cd mail-order-invoice-DynamicSQL
 ```
 
-### 2. Database Setup
+### 2. Setup environment
+   
+1. create virtual environment
+```
+py -m venv dbenv
+```
+   
+2. activate virtual environment (you should see (dbenv) in prompt)
+```
+dbenv\Scripts\activate
+```
+   
+3. install dependencies
+``` 
+pip install -r requirements.txt
+```
+
+4. when done, deactivate
+```
+deactivate
+```
+
+### 3. Setup Database
 
 #### Database Setup (One-time, as ROOT)
 
 1. connect as root   
 using gcloud CLI / using MySQL client / using MySQL locally
 ```bash
-gcloud sql connect [db_name] --user=root
+gcloud sql connect [instance_id] --user=root
 ```
 ```bash
 mysql --host=[IPv4 address] --user=root –-password
@@ -38,12 +66,8 @@ SHOW TABLES;
 
 4. create user and grant permissions to user
 ```sql
--- check all users
-SELECT user, host FROM mysql.user;
--- if user doesn't already exist:
-CREATE USER 'username' IDENTIFIED BY 'password';
--- run even if user exists
-GRANT ALL PRIVILEGES ON [db_name].* TO 'username';
+CREATE USER 'your_username' IDENTIFIED BY 'your_password';
+GRANT ALL PRIVILEGES ON mail_order.* TO 'your_username';
 ```
    
 5. exit
@@ -51,68 +75,42 @@ GRANT ALL PRIVILEGES ON [db_name].* TO 'username';
 exit
 ```
 
-#### Database Usage
-
-1. connect to database
-using gcloud CLI / using MySQL client / using MySQL locally
-```bash
-gcloud sql connect neu-test-db --user=YOUR_USERNAME
-```
-```bash
-mysql --host=YOUR_CLOUD_SQL_IP --user=YOUR_USERNAME --password
-```
-```bash
-mysql -u YOUR_USERNAME -p
-```
-   
-2. use the database
-```sql
-USE mail_order;
-```
-   
-3. example queries
-```sql
--- view all tables
-SHOW TABLES;
-
--- view table structure
-DESC customers;
-
--- query data
-SELECT * FROM customers;
-```
-
-4. exit
-```sql
-exit
-```
-
-### 3. Python Setup
-
-#### Set Up Virtual Environment
-
-1. create virtual environment
-```bash
-py -m venv dbenv
-```
-   
-2. activate virtual environment (you should see (dbenv) in prompt)
-```bash
-dbenv\Scripts\activate
-```
-   
-3. install dependencies
-```bash 
-pip install -r requirements.txt
-```
-
-#### Create `config/db_config.json`
+### 4. Create `config/db_config.json`
 
 ```json
 {
-    "user": "YOUR_USERNAME",
-    "password": "YOUR_PASSWORD",
-    "host": "YOUR_CLOUD_SQL_IP/localhost",
+    "user": "your_username",
+    "password": "your_password",
+    "host": "your_cloud_sql_ip/localhost",
     "database": "mail_order"
 }
 ```
+
+### 5. Run
+```
+py src/invoice.py
+```
+enter order number: 1020, 1021, 1022, or 1023
+
+## Project Structure
+```
+├── sql/
+│   ├── cr_mailorder.sql              # database schema
+│   └── get_invoice_by_order.sql      # invoice query
+├── src/
+│   ├── invoice.py                    # main application
+│   └── test_invoice.py               # tests
+└── config/
+    └── db_config.json                # DB credentials (gitignored)
+```
+
+## Database Schema
+
+The **mail_order** database contains 6 tables:
+
+- **employees** - Employee information (eno, ename, zip, hdate)
+- **parts** - Product catalog (pno, pname, qoh, prices, wlevel)
+- **customers** - Customer information (cno, cname, street, zip, phone)
+- **orders** - Order records (ono, cno, eno, received, shipped)
+- **odetails** - Order line items (ono, pno, qty)
+- **zipcodes** - ZIP to city mapping (zip, city)
