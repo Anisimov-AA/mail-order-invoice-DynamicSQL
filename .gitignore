@@ -1,0 +1,18 @@
+# Sensitive files
+config/gemini_api_key.txt
+config/db_config.json
+*.pyc
+__pycache__/
+
+# Virtual environment
+dbenv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
