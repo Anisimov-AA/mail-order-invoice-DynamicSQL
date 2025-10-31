@@ -100,3 +100,28 @@ def display_invoice(results):
     print("=" * 66)
     print(f"TOTAL AMOUNT: ${total_amount:.2f}")
     print("=" * 66 + "\n")
+
+def main():
+    # get order number from user
+    order_input = input("Enter Order Number (or 'q' to quit): ").strip()
+
+    # check if user wants to quit
+    if order_input.lower() == 'q':
+        print("Goodbye!")
+        return
+    
+    # validate input is a number
+    if not order_input.isdigit():
+        print("Error: Order number must be a number.")
+        return
+
+    # convert to integer
+    order_num = int(order_input)
+
+    # fetch and display invoice
+    print(f"\nLooking up order {order_num}...")
+    results = get_invoice_data(order_num)
+    display_invoice(results)
+
+if __name__ == '__main__':
+    main()
