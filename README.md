@@ -13,12 +13,15 @@ cd mail-order-invoice-DynamicSQL
 #### Database Setup (One-time, as ROOT)
 
 1. connect as root   
-method 1: using gcloud CLI / method 2: using MySQL client
+using gcloud CLI / using MySQL client / using MySQL locally
 ```bash
 gcloud sql connect [db_name] --user=root
 ```
 ```bash
 mysql --host=[IPv4 address] --user=root –-password
+```
+```bash
+mysql -u root -p
 ```
    
 2. create database and load schema
@@ -35,6 +38,8 @@ SHOW TABLES;
 
 4. create user and grant permissions to user
 ```sql
+-- check all users
+SELECT user, host FROM mysql.user;
 -- if user doesn't already exist:
 CREATE USER 'username' IDENTIFIED BY 'password';
 -- run even if user exists
@@ -49,12 +54,15 @@ exit
 #### Database Usage
 
 1. connect to database
-method 1: using gcloud CLI / method 2: using MySQL client
+using gcloud CLI / using MySQL client / using MySQL locally
 ```bash
 gcloud sql connect neu-test-db --user=YOUR_USERNAME
 ```
 ```bash
 mysql --host=YOUR_CLOUD_SQL_IP --user=YOUR_USERNAME --password
+```
+```bash
+mysql -u YOUR_USERNAME -p
 ```
    
 2. use the database
@@ -68,10 +76,9 @@ USE mail_order;
 SHOW TABLES;
 
 -- view table structure
-DESCRIBE customers;
-DESCRIBE orders;
+DESC customers;
 
--- Query data
+-- query data
 SELECT * FROM customers;
 ```
 
@@ -98,11 +105,6 @@ dbenv\Scripts\activate
 ```bash 
 pip install -r requirements.txt
 ```
-    
-4. verify installation
-```
-pip list
-```
 
 #### Create `config/db_config.json`
 
@@ -110,7 +112,7 @@ pip list
 {
     "user": "YOUR_USERNAME",
     "password": "YOUR_PASSWORD",
-    "host": "YOUR_CLOUD_SQL_IP",
+    "host": "YOUR_CLOUD_SQL_IP/localhost",
     "database": "mail_order"
 }
 ```
