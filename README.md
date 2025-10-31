@@ -61,11 +61,11 @@ USE mail_order;
    
 3. example queries
 ```sql
--- View all tables
+-- view all tables
 SHOW TABLES;
 
--- View table structure
-DESCRIBE customer;
+-- view table structure
+DESCRIBE customers;
 DESCRIBE orders;
 
 -- Query data
