@@ -19,34 +19,15 @@ Required software:
 - virtualenv ($ pip install virtualenv)
 
 ### 1. Clone
-```
-git clone https://github.com/Anisimov-AA/mail-order-invoice-DynamicSQL.git
-```
-```
-cd mail-order-invoice-DynamicSQL
-```
+`git clone https://github.com/Anisimov-AA/mail-order-invoice-DynamicSQL.git`
+`cd mail-order-invoice-DynamicSQL`
 
 ### 2. Setup environment
    
-1. create virtual environment
-```
-py -m venv dbenv
-```
-   
-2. activate virtual environment (you should see (dbenv) in prompt)
-```
-dbenv\Scripts\activate
-```
-   
-3. install dependencies
-``` 
-pip install -r requirements.txt
-```
-
-4. when done, deactivate
-```
-deactivate
-```
+1. create virtual environment: `py -m venv dbenv`
+2. activate it (you should see (dbenv) in prompt): `dbenv\Scripts\activate`
+3. install dependencies: `pip install -r requirements.txt`
+4. when done, deactivate: `deactivate`
 
 ### 3. Setup Database
 
