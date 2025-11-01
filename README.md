@@ -13,8 +13,8 @@ Python CLI application that displays customer order invoices using **Dynamic SQL
 
 ## Setup
 
-Required software:
-- Python Version = 3.7 +
+required software:
+- python version = 3.7 +
 - pip
 - virtualenv ($ pip install virtualenv)
 
@@ -28,19 +28,19 @@ cd mail-order-invoice-DynamicSQL
 
 ### 2. Setup environment
    
-1. create virtual environment: 
+1. create virtual environment
 ```
 py -m venv dbenv
 ```
-2. activate it (you should see (dbenv) in prompt): 
+2. activate it (you should see (dbenv) in prompt)
 ```
 dbenv\Scripts\activate
 ```
-3. install dependencies: 
+3. install dependencies
 ```
 pip install -r requirements.txt
 ```
-4. when done, deactivate: 
+4. when done, deactivate
 ```
 deactivate
 ```
