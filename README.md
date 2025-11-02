@@ -12,11 +12,7 @@ Python CLI application that displays customer order invoices using **Dynamic SQL
 </table>
 
 ## Setup
-
-required software:
-- python version = 3.7 +
-- pip
-- virtualenv ($ pip install virtualenv)
+**Requirements:** Python 3.7+, MySQL (local or google cloud SQL)
 
 ### 1. Clone
 ```
@@ -48,15 +44,11 @@ deactivate
 ### 3. Setup Database
 
 1. connect as root   
-using gcloud CLI / using MySQL client / using MySQL locally
 ```bash
-gcloud sql connect [instance_id] --user=root
-```
-```bash
-mysql --host=[IPv4 address] --user=root –-password
-```
-```bash
-mysql -u root -p
+# choose one:
+mysql -u root -p                              # local
+mysql --host=[IP] --user=root --password      # remote
+gcloud sql connect [instance] --user=root     # cloud SQL
 ```
    
 2. create database and load schema
@@ -68,13 +60,13 @@ source C:/.../sql/cr_mailorder.sql
    
 3. verify tables
 ```sql
-SHOW TABLES;
+SHOW TABLES; -- should show 6 tables
 ```
 
 4. create user and grant permissions to user
 ```sql
-CREATE USER 'your_username' IDENTIFIED BY 'your_password';
-GRANT ALL PRIVILEGES ON mail_order.* TO 'your_username';
+CREATE USER 'username' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON mail_order.* TO 'password';
 ```
    
 5. exit
@@ -86,18 +78,21 @@ exit
 
 ```json
 {
-    "user": "your_username",
-    "password": "your_password",
-    "host": "your_cloud_sql_ip/localhost",
+    "user": "username",
+    "password": "password",
+    "host": "cloud_sql_ip/localhost",
     "database": "mail_order"
 }
 ```
 
 ### 5. Run
 ```
+dbenv\Scripts\activate
+```
+```
 py src/invoice.py
 ```
-enter order number: 1020, 1021, 1022, or 1023
+test with:: 1020, 1021, 1022, or 1023
 
 ## Project Structure
 ```
