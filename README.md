@@ -54,7 +54,11 @@ gcloud sql connect [instance] --user=root     # cloud SQL
 2. create database and load schema
 ```sql
 CREATE DATABASE mail_order;
+```
+```sql
 USE mail_order;
+```
+```sql
 source C:/.../sql/cr_mailorder.sql
 ```
    
@@ -66,6 +70,8 @@ SHOW TABLES; -- should show 6 tables
 4. create user and grant permissions to user
 ```sql
 CREATE USER 'username' IDENTIFIED BY 'password';
+```
+```sql
 GRANT ALL PRIVILEGES ON mail_order.* TO 'password';
 ```
    
